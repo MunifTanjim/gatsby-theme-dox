@@ -1,0 +1,21 @@
+# Theme UI Customization
+
+`gatsby-theme-dox` uses [Theme UI](https://theme-ui.com) for styling the theme.
+
+For customizing the default theme, follow the steps below:
+
+- Create a `theme.js` file in the `src/gatsby-theme-dox` directory.
+- Import the default theme and override the values you want to change.
+
+```js
+// src/gatsby-theme-dox/theme.js
+import theme from 'gatsby-theme-dox/src/theme'
+
+export default {
+  ...theme,
+  colors: {
+    ...theme.colors,
+    primary: '#FFCD00'
+  }
+}
+```

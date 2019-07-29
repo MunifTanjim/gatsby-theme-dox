@@ -1,5 +1,11 @@
 title: Dox
 logo: /logo.svg
 items:
-  - title: Introduction
+  - title: Getting Started
     link: /
+  - title: Navigation
+    link: /navigation
+  - title: Customization
+    link: /customization
+  - title: MDX Components
+    link: /mdx-components
