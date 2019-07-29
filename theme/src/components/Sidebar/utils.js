@@ -9,7 +9,7 @@ const extendItem = item => {
   })
 }
 
-const extendItems = items => {
+const extendItems = (items = []) => {
   items.forEach(item => {
     item.level = 0
 

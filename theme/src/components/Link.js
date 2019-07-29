@@ -5,7 +5,7 @@ import { jsx } from 'theme-ui'
 
 const linkStyles = { variant: 'styles.a' }
 
-function Link({ to, href = to, children, ...props }) {
+function Link({ to = '', href = to, children, ...props }) {
   const isAbsoluteLink = isAbsoluteURL(href)
 
   return isAbsoluteLink ? (
