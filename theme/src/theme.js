@@ -9,13 +9,20 @@ import prism from '@theme-ui/prism/presets/theme-ui'
 export default {
   breakpoints: ['640px', '960px'],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
+  initialColorMode: 'light',
   colors: {
     text: '#011627',
     background: '#FDFFFC',
     primary: '#E71D36',
     secondary: '#2EC4B6',
     accent: '#FF9F1C',
-    muted: '#fafafa'
+    muted: '#fafafa',
+    modes: {
+      dark: {
+        text: '#FDFFFC',
+        background: '#011627'
+      }
+    }
   },
   fonts: {
     body:
