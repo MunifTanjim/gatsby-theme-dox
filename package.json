@@ -1,7 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "demo": "yarn workspace demo develop"
+    "demo": "yarn workspace demo start",
+    "demo:build": "yarn workspace demo build"
   },
   "devDependencies": {
     "@types/styled-system": "^5.0.0",
