@@ -1,0 +1,43 @@
+{
+  "name": "gatsby-theme-dox",
+  "version": "0.0.0",
+  "description": "Dox - Gatsby Theme for Documentation",
+  "keywords": [
+    "gatsby",
+    "gatsby-theme",
+    "gatsby-plugin",
+    "documentation"
+  ],
+  "homepage": "https://github.com/MunifTanjim/gatsby-theme-dox#readme",
+  "bugs": "https://github.com/MunifTanjim/gatsby-theme-dox/issues",
+  "license": "MIT",
+  "author": "Munif Tanjim (https://muniftanjim.com)",
+  "main": "index.js",
+  "repository": "https://github.com/MunifTanjim/gatsby-theme-dox",
+  "dependencies": {
+    "@emotion/core": "^10.0.14",
+    "@mdx-js/mdx": "^1.1.0",
+    "@mdx-js/react": "^1.0.27",
+    "gatsby-plugin-mdx": "^1.0.17",
+    "gatsby-plugin-react-helmet": "^3.1.2",
+    "gatsby-plugin-theme-ui": "^0.2.18",
+    "gatsby-source-filesystem": "^2.1.6",
+    "gatsby-transformer-yaml": "^2.2.4",
+    "hex2rgba": "^0.0.1",
+    "is-absolute-url": "^3.0.0",
+    "react-helmet": "^6.0.0-beta",
+    "remark-emoji": "^2.0.2",
+    "remark-slug": "^5.1.2",
+    "theme-ui": "^0.2.18"
+  },
+  "devDependencies": {
+    "gatsby": "^2.13.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "peerDependencies": {
+    "gatsby": "^2.13.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}

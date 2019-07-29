@@ -1,0 +1,19 @@
+title: Dox
+items:
+  - title: A
+    link: /A
+  - title: B
+    link: /B
+  - title: C
+    link: /C
+    items:
+      - title: C1
+        items:
+          - title: C1a
+            link: /C/C1/C1a
+          - title: C1b
+            link: /C/C1/C1b
+      - title: C2
+        link: /C/C2
+  - title: D
+    link: /D
