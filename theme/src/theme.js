@@ -4,17 +4,18 @@
  * @see https://theme-ui.com/gatsby-plugin/
  */
 
-const rebeccapurple = '#639'
+import prism from '@theme-ui/prism/presets/theme-ui'
 
 export default {
   breakpoints: ['640px', '960px'],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   colors: {
-    text: '#000',
-    background: '#fff',
-    primary: rebeccapurple,
-    secondary: '#30c',
-    muted: '#f6f6f6'
+    text: '#011627',
+    background: '#FDFFFC',
+    primary: '#E71D36',
+    secondary: '#2EC4B6',
+    accent: '#FF9F1C',
+    muted: '#fafafa'
   },
   fonts: {
     body:
@@ -100,6 +101,11 @@ export default {
     pre: {
       fontFamily: 'monospace',
       overflowX: 'auto',
+      p: 3,
+      borderRadius: '0.5rem',
+      bg: 'text',
+      color: 'background',
+      ...prism,
       code: {
         color: 'inherit'
       }
