@@ -2,9 +2,9 @@ title: Dox
 items:
   - title: Getting Started
     link: /
-  - title: Navigation
-    link: /navigation
   - title: Customization
     link: /customization
   - title: MDX Components
     link: /mdx-components
+  - title: Navigation
+    link: /navigation

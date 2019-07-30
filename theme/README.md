@@ -6,9 +6,10 @@ Documentation made easy with Gatsby. :tada:
 
 ## Features
 
-- :open_book: MDX support for documentation files
-- :art: Theme UI support
-- :bookmark_tabs: Navbar & Sidebar
+- :open_book: MDX support
+- :nail_care: Theme UI support
+- :art: Syntax Highlighting
+- :bookmark_tabs: Navbar, Sidebar & Footer
 - :iphone: Fully Responsive Design :computer:
 
 ## Installation
