@@ -8,6 +8,7 @@ import Navbar from './Navbar'
 import ScreenReader from './ScreenReader'
 import Sidebar from './Sidebar'
 import SidebarToggler from './Sidebar/Toggler'
+import Footer from './Footer'
 
 function Layout({ children }) {
   const [sidebar, sidebarOpen, setSidebarOpen, sidebarToggler] = useSidebar()
@@ -52,6 +53,8 @@ function Layout({ children }) {
         >
           {children}
         </main>
+
+        <Footer />
       </div>
     </Styled.root>
   )
