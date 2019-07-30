@@ -21,7 +21,7 @@ function Layout({ children }) {
 
       <Global styles={css({ variant: 'layout.global' })} />
 
-      <ScreenReader as={Link} to="#content">
+      <ScreenReader as="a" href="#__content">
         Skip to main content
       </ScreenReader>
 
@@ -45,7 +45,7 @@ function Layout({ children }) {
         <Navbar />
 
         <main
-          id="content"
+          id="__content"
           sx={{
             variant: 'layout.container',
             '& > :first-child': { pt: '0.75rem' }

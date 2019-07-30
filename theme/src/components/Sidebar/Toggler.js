@@ -38,7 +38,7 @@ function SidebarToggler({ sidebar, open, setOpen, toggler }) {
       <button
         ref={toggler}
         onClick={toggleSidebar}
-        aria-controls="sidebar"
+        aria-controls="__sidebar"
         aria-expanded={open}
       >
         <Hamburger open={open} aria-hidden />

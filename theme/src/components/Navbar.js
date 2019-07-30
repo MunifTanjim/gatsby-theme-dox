@@ -6,7 +6,7 @@ import Link from './Link'
 
 function Navbar() {
   return (
-    <nav id="navigation-menu" aria-label="Navigation Menu">
+    <nav aria-label="Navigation Menu">
       <div
         sx={{
           variant: 'layout.container',

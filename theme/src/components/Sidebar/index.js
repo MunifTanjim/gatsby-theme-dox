@@ -57,7 +57,7 @@ function Sidebar({
 
   return (
     <section
-      id="sidebar"
+      id="__sidebar"
       key="sidebar"
       ref={sidebar}
       aria-expanded={open}
