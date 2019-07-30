@@ -39,7 +39,11 @@ function Item({
       />
 
       {item.items && (
-        <ul id={id} sx={{ display: isExpanded ? 'block' : 'none' }}>
+        <ul
+          id={id}
+          aria-expanded={isExpanded}
+          sx={{ display: isExpanded ? 'block' : 'none' }}
+        >
           {item.items.map(subitem => (
             <Item
               key={subitem.title}

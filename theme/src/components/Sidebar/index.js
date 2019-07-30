@@ -19,7 +19,16 @@ const setOpenItems = (state, items) => {
   }
 }
 
-function Sidebar({ sidebar, open, setOpen, location, title, items, logo }) {
+function Sidebar({
+  sidebar,
+  open,
+  setOpen,
+  toggler,
+  location,
+  title,
+  items,
+  logo
+}) {
   const [state, setState] = useState(() => {
     const activeItem = getActiveItem(items, location)
 
@@ -48,8 +57,11 @@ function Sidebar({ sidebar, open, setOpen, location, title, items, logo }) {
 
   return (
     <section
+      id="sidebar"
       key="sidebar"
       ref={sidebar}
+      aria-expanded={open}
+      tabIndex="-1"
       className={open ? 'active' : ''}
       sx={{ variant: 'layout.sidebar', zIndex: 99 }}
     >

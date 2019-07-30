@@ -2,12 +2,12 @@
 import { jsx } from 'theme-ui'
 
 const hamburgerStyles = {
+  display: 'block',
   cursor: 'pointer',
   color: 'background',
   backgroundColor: 'primary',
   m: 0,
   p: '1rem',
-  border: 0,
   borderRadius: '50%',
 
   '.Hamburger-box': {
@@ -58,18 +58,13 @@ const hamburgerStyles = {
   }
 }
 
-function Hamburger({ open, onClick, ...props }) {
+function Hamburger({ open, ...props }) {
   return (
-    <button
-      {...props}
-      onClick={onClick}
-      className={open ? 'active' : ''}
-      sx={hamburgerStyles}
-    >
+    <span {...props} className={open ? 'active' : ''} sx={hamburgerStyles}>
       <span className="Hamburger-box">
         <span className="Hamburger-stick"></span>
       </span>
-    </button>
+    </span>
   )
 }
 

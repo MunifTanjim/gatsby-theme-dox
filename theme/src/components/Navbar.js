@@ -21,7 +21,7 @@ function Navbar() {
               </Link>
             </li>
           ))}
-          <li sx={{ display: 'inline-block' }}>
+          <li aria-hidden sx={{ display: 'inline-block' }}>
             <ColorModeButton />
           </li>
         </ul>

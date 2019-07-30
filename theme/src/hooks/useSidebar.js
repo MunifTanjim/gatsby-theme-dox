@@ -5,6 +5,7 @@ const isBrowser = typeof window !== `undefined`
 function useSidebar() {
   const sidebar = useRef(null)
   const [open, setOpen] = useState(false)
+  const sidebarToggler = useRef(null)
 
   const [windowHeight, setWindowHeight] = useState(
     isBrowser ? window.innerHeight : 0
@@ -95,7 +96,7 @@ function useSidebar() {
     }
   }, [onResizeHandler, onScrollHandler])
 
-  const bundle = useMemo(() => [sidebar, open, setOpen], [open])
+  const bundle = useMemo(() => [sidebar, open, setOpen, sidebarToggler], [open])
 
   return bundle
 }
