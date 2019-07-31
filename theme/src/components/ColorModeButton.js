@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx, useColorMode } from 'theme-ui'
+import ScreenReader from './ScreenReader'
 
 // SVGs from https://github.com/feathericons/feather
 
@@ -44,17 +45,20 @@ function ColorModeButton() {
 
   return (
     <button
-      aria-hidden
       onClick={() => {
         setColorMode(colorMode === 'light' ? 'dark' : 'light')
       }}
       sx={{ bg: 'transparent', border: 0, p: '1em' }}
     >
       <span
+        aria-hidden
         sx={{ color: 'text', display: 'block', width: '1em', height: '1em' }}
       >
         {colorMode === 'dark' ? <Moon /> : <Sun />}
       </span>
+      <ScreenReader>
+        {`Toggle ${colorMode === 'dark' ? 'Light' : 'Dark'} Mode`}
+      </ScreenReader>
     </button>
   )
 }
