@@ -5,6 +5,7 @@
  */
 
 import prism from '@theme-ui/prism/presets/theme-ui'
+import hex2rgba from 'hex2rgba'
 
 export default {
   breakpoints: ['640px', '960px'],
@@ -16,7 +17,7 @@ export default {
     primary: '#E71D36',
     secondary: '#2EC4B6',
     accent: '#FF9F1C',
-    muted: '#fafafa',
+    muted: '#FAFAFA',
     modes: {
       dark: {
         text: '#FDFFFC',
@@ -121,17 +122,24 @@ export default {
       fontSize: 'inherit'
     },
     table: {
+      display: 'block',
       width: '100%',
-      borderCollapse: 'separate',
+      overflow: 'auto',
+      borderCollapse: 'collapse',
       borderSpacing: 0
     },
+    tr: {
+      borderTop: '1px solid gray'
+    },
     th: {
-      textAlign: 'left',
-      borderBottomStyle: 'solid'
+      border: '1px solid',
+      borderColor: theme => hex2rgba(theme.colors.text, 0.25),
+      p: '0.25em 0.5em'
     },
     td: {
-      textAlign: 'left',
-      borderBottomStyle: 'solid'
+      border: '1px solid',
+      borderColor: theme => hex2rgba(theme.colors.text, 0.25),
+      p: '0.25em 0.5em'
     }
   },
   layout: {
