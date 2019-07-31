@@ -4,8 +4,7 @@ import { jsx } from 'theme-ui'
 const hamburgerStyles = {
   display: 'block',
   cursor: 'pointer',
-  color: 'background',
-  backgroundColor: 'primary',
+  bg: 'primary',
   m: 0,
   p: '1rem',
   borderRadius: '50%',
@@ -18,7 +17,7 @@ const hamburgerStyles = {
   },
 
   '.Hamburger-stick': {
-    backgroundColor: 'background',
+    bg: 'background',
     borderRadius: '4px',
     display: 'block',
     position: 'absolute',
@@ -27,7 +26,7 @@ const hamburgerStyles = {
     height: '4px',
     mt: '-2px',
     [[':before', ':after']]: {
-      backgroundColor: 'background',
+      bg: 'background',
       display: 'block',
       content: "''",
       position: 'absolute',

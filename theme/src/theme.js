@@ -64,7 +64,6 @@ export default {
   },
   styles: {
     root: {
-      color: 'text',
       fontFamily: 'body',
       fontWeight: 'body',
       lineHeight: 'body',
@@ -145,12 +144,11 @@ export default {
         boxSizing: 'inherit'
       },
       body: {
-        margin: 0,
-        backgroundColor: 'background'
+        margin: 0
       },
       '::selection': {
         color: 'background',
-        backgroundColor: 'primary'
+        bg: 'primary'
       }
     },
     root: {
@@ -160,7 +158,6 @@ export default {
       overflowX: 'hidden'
     },
     sidebar: {
-      bg: 'background',
       float: 'left',
       width: 300,
       minHeight: '100%',

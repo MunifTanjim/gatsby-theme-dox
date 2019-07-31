@@ -13,7 +13,7 @@ const styles = {
   width: '1px',
   wordWrap: 'normal !important',
   ':focus': {
-    backgroundColor: 'background',
+    bg: 'background',
     clip: 'auto !important',
     clipPath: 'none',
     color: 'text',

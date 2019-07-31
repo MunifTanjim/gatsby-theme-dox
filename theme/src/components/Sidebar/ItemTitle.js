@@ -43,7 +43,7 @@ const styles = {
     pr: '2.5rem',
     ':hover': {
       variant: 'linkStyles.nav.:hover',
-      backgroundColor: theme => hex2rgba(theme.colors.primary, 0.05)
+      bg: theme => hex2rgba(theme.colors.primary, 0.05)
     }
   }
 }

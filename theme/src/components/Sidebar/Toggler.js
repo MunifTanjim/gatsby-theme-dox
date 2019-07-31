@@ -57,7 +57,7 @@ function SidebarToggler({ sidebar, open, setOpen, toggler }) {
               left: 0,
               width: '100%',
               height: '100%',
-              backgroundColor: theme => hex2rbga(theme.colors.background, 0.7)
+              bg: theme => hex2rbga(theme.colors.background, 0.7)
             }}
           />
         </SidebarOverlay>
