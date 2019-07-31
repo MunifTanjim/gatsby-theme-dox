@@ -2,9 +2,16 @@
 import { graphql, useStaticQuery } from 'gatsby'
 import { jsx } from 'theme-ui'
 import Link from '../Link'
+import LogoComponent from '../Logo'
 import ScreenReader from '../ScreenReader'
 
-function Branding({ logo, title }) {
+const Title = LogoComponent ? ScreenReader : 'span'
+
+const logo = LogoComponent && (
+  <LogoComponent aria-hidden sx={{ display: 'block', height: '1.5em' }} />
+)
+
+function Branding({ title }) {
   const { site } = useStaticQuery(graphql`
     query {
       site {
@@ -14,8 +21,6 @@ function Branding({ logo, title }) {
       }
     }
   `)
-
-  const Title = logo ? ScreenReader : 'span'
 
   return (
     <div sx={{ variant: 'layout.container', px: 0 }}>
@@ -28,14 +33,7 @@ function Branding({ logo, title }) {
             '&.active': { color: 'inherit' }
           }}
         >
-          {logo && (
-            <img
-              src={logo}
-              alt={`${site.siteMetadata.title} Logo`}
-              aria-hidden="true"
-              sx={{ display: 'block', height: '1.5em' }}
-            />
-          )}
+          {logo}
           <Title>{title || site.siteMetadata.title}</Title>
         </Link>
       </h3>

@@ -28,6 +28,24 @@ You can use your own favorite [Prism](https://prismjs.com) theme for Syntax High
 
 Follow the [@theme-ui/prism documentation](https://theme-ui.com/prism#gatsby-plugin) for Gatsby plugin.
 
+## Logo
+
+You can show a logo instead of the site's title at the top of the Sidebar. For doing that, follow these steps:
+
+- Create a React component called `Logo.js` in the `src/gatsby-theme-dox/components` directory.
+- Be sure to spread the `props`. For example:
+
+```js
+// src/gatsby-theme-dox/components/Logo.js
+import React from 'react'
+
+function Logo(props) {
+  return <img src="/logo.png" alt="Go to homepage" {...props} />
+}
+
+export default Logo
+```
+
 ## Footer
 
 For customizing the footer create a `footer.mdx` file in the `src/gatsby-theme-dox` directory.
