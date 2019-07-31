@@ -1,5 +1,4 @@
 /** @jsx jsx */
-import { Location } from '@reach/router'
 import { useCallback, useState } from 'react'
 import { jsx } from 'theme-ui'
 import sidebarData from '../../sidebar.yaml'
@@ -19,16 +18,9 @@ const setOpenItems = (state, items) => {
   }
 }
 
-function Sidebar({
-  sidebar,
-  open,
-  setOpen,
-  toggler,
-  location,
-  title,
-  items,
-  logo
-}) {
+const { items, title, logo } = extendData(sidebarData)
+
+function Sidebar({ sidebar, open, location }) {
   const [state, setState] = useState(() => {
     const activeItem = getActiveItem(items, location)
 
@@ -65,10 +57,13 @@ function Sidebar({
       className={open ? 'active' : ''}
       sx={{ variant: 'layout.sidebar', zIndex: 99 }}
     >
-      <nav sx={{ ul: { listStyle: 'none' } }}>
-        <Branding title={title} logo={logo} />
+      <Branding title={title} logo={logo} />
 
-        <ul sx={{ m: 0, p: 0, ul: { pl: '1.5em' } }}>
+      <nav
+        aria-label="Navigation Menu"
+        sx={{ variant: 'layout.container', px: 0 }}
+      >
+        <ul sx={{ listStyle: 'none', m: 0, p: 0, ul: { pl: '1.5em' } }}>
           {items.map((item, index) => (
             <Item
               key={index}
@@ -86,18 +81,4 @@ function Sidebar({
   )
 }
 
-const data = extendData(sidebarData)
-
-export default props => (
-  <Location>
-    {({ location }) => (
-      <Sidebar
-        {...props}
-        location={location}
-        items={data.items}
-        title={data.title}
-        logo={data.logo}
-      />
-    )}
-  </Location>
-)
+export default Sidebar

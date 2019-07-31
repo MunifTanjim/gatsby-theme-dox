@@ -3,14 +3,13 @@ import { Global } from '@emotion/core'
 import { Helmet } from 'react-helmet'
 import { css, jsx, Styled, useThemeUI } from 'theme-ui'
 import useSidebar from '../hooks/useSidebar'
-import Link from './Link'
+import Footer from './Footer'
 import Navbar from './Navbar'
 import ScreenReader from './ScreenReader'
 import Sidebar from './Sidebar'
 import SidebarToggler from './Sidebar/Toggler'
-import Footer from './Footer'
 
-function Layout({ children }) {
+function Layout({ children, location }) {
   const [sidebar, sidebarOpen, setSidebarOpen, sidebarToggler] = useSidebar()
 
   const { theme } = useThemeUI()
@@ -32,6 +31,7 @@ function Layout({ children }) {
         toggler={sidebarToggler}
       />
       <Sidebar
+        location={location}
         sidebar={sidebar}
         open={sidebarOpen}
         setOpen={setSidebarOpen}
