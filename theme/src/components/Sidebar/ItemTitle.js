@@ -22,6 +22,8 @@ const styles = {
     m: 0,
     border: 0,
     background: 'transparent',
+    fontFamily: 'inherit',
+    fontSize: 'inherit',
     textAlign: 'left'
   },
   Button: {

@@ -61,9 +61,13 @@ function Sidebar({ sidebar, open, location }) {
 
       <nav
         aria-label="Navigation Menu"
-        sx={{ variant: 'layout.container', px: 0 }}
+        sx={{
+          variant: 'layout.container',
+          px: 0,
+          ul: { listStyle: 'none', m: 0, p: 0 }
+        }}
       >
-        <ul sx={{ listStyle: 'none', m: 0, p: 0, ul: { pl: '1.5em' } }}>
+        <ul sx={{ ul: { pl: '1.5em' } }}>
           {items.map((item, index) => (
             <Item
               key={index}

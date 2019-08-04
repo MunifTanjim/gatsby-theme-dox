@@ -3,8 +3,8 @@ items:
   - title: Getting Started
     link: /
   - title: Customization
-    link: /customization
+    link: /customization/
   - title: MDX Components
-    link: /mdx-components
+    link: /mdx-components/
   - title: Navigation
-    link: /navigation
+    link: /navigation/
