@@ -22,6 +22,7 @@ const styles = {
     m: 0,
     border: 0,
     background: 'transparent',
+    color: 'text',
     fontFamily: 'inherit',
     fontSize: 'inherit',
     textAlign: 'left'
@@ -33,6 +34,7 @@ const styles = {
     bottom: 0,
     width: '2.5rem',
     background: 'transparent',
+    color: 'inherit',
     border: 0,
     textAlign: 'center',
     display: 'flex',

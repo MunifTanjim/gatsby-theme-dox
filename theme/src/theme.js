@@ -122,7 +122,6 @@ export default {
       fontSize: 'inherit'
     },
     table: {
-      display: 'block',
       width: '100%',
       overflow: 'auto',
       borderCollapse: 'collapse',
@@ -174,6 +173,7 @@ export default {
       left: [theme => -theme.layout.sidebar.width, null, 'auto'],
       visibility: ['hidden', null, 'visible'],
       transition: 'left 0.1s',
+      outline: 0,
       '&.active': {
         left: 'auto',
         visibility: 'visible'
