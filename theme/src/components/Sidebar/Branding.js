@@ -11,7 +11,7 @@ const logo = LogoComponent && (
   <LogoComponent aria-hidden sx={{ display: 'block', height: '1.5em' }} />
 )
 
-function Branding({ title }) {
+function Branding() {
   const { site } = useStaticQuery(graphql`
     query {
       site {
@@ -34,7 +34,7 @@ function Branding({ title }) {
           }}
         >
           {logo}
-          <Title>{title || site.siteMetadata.title}</Title>
+          <Title>{site.siteMetadata.title}</Title>
         </Link>
       </h3>
     </div>

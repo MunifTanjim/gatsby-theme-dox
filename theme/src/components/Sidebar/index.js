@@ -1,51 +1,51 @@
 /** @jsx jsx */
-import { useCallback, useState } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { jsx } from 'theme-ui'
-import sidebarData from '../../sidebar.yaml'
+import SidebarContent from '../../sidebar.mdx'
 import Branding from './Branding'
 import Item, { isItemActive } from './Item'
-import { extendData, getActiveItem, getActiveItemParents } from './utils'
+import { getActiveItem, getActiveItemParentLinks, getItems } from './utils'
 
 const setOpenItems = (state, items) => {
   for (const item of items) {
     if (item.items) {
-      state.openItems[item.title] =
+      state.openItems[item.link] =
         isItemActive(state.activeItemParents, item) ||
-        state.activeItem.title === item.title
+        state.activeItem.link === item.link
 
       setOpenItems(state, item.items)
     }
   }
 }
 
-const { items, title, logo } = extendData(sidebarData)
+function Sidebar({ children, sidebar, open = true, location }) {
+  const items = useMemo(() => getItems(children), [children])
 
-function Sidebar({ sidebar, open, location }) {
-  const [state, setState] = useState(() => {
-    const activeItem = getActiveItem(items, location)
+  const [{ openItems, activeItem, activeItemParentLinks }, setState] = useState(
+    () => {
+      const activeItem = getActiveItem(items, location)
 
-    const state = {
-      openItems: {},
-      activeItem,
-      activeItemParents: getActiveItemParents(items, activeItem, [])
+      const state = {
+        openItems: {},
+        activeItem,
+        activeItemParentLinks: getActiveItemParentLinks(items, activeItem, [])
+      }
+
+      setOpenItems(state, items)
+
+      return state
     }
-
-    setOpenItems(state, items)
-
-    return state
-  })
+  )
 
   const toggleItem = useCallback(item => {
     setState(state => ({
       ...state,
       openItems: {
         ...state.openItems,
-        [item.title]: !state.openItems[item.title]
+        [item.link]: !state.openItems[item.link]
       }
     }))
   }, [])
-
-  const { openItems, activeItem, activeItemParents } = state
 
   return (
     <section
@@ -57,7 +57,7 @@ function Sidebar({ sidebar, open, location }) {
       className={open ? 'active' : ''}
       sx={{ variant: 'layout.sidebar', zIndex: 99 }}
     >
-      <Branding title={title} logo={logo} />
+      <Branding />
 
       <nav
         aria-label="Navigation Menu"
@@ -68,14 +68,14 @@ function Sidebar({ sidebar, open, location }) {
         }}
       >
         <ul sx={{ ul: { pl: '1.5em' } }}>
-          {items.map((item, index) => (
+          {items.map(item => (
             <Item
-              key={index}
+              key={item.link}
               item={item}
               location={location}
               openItems={openItems}
               activeItem={activeItem}
-              activeItemParents={activeItemParents}
+              activeItemParentLinks={activeItemParentLinks}
               toggleItem={toggleItem}
             />
           ))}
@@ -85,4 +85,11 @@ function Sidebar({ sidebar, open, location }) {
   )
 }
 
-export default Sidebar
+export default props => (
+  <SidebarContent
+    {...props}
+    components={{
+      wrapper: Sidebar
+    }}
+  />
+)

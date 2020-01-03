@@ -1,29 +1,54 @@
-const extendItem = item => {
-  if (!item.items) return
+import { Children } from 'react'
 
-  item.items.forEach(childItem => {
-    childItem.level = item.level + 1
-    childItem.parentTitle = item.title
+const simplifyChildren = (children, depth = 0) => {
+  return Children.toArray(children).reduce((items, item) => {
+    if (!item.props || !item.props.children) {
+      return items
+    }
 
-    extendItem(childItem)
-  })
+    if (item.props.mdxType === 'a') {
+      return items.concat({
+        link: item.props.href,
+        title: item.props.children
+      })
+    }
+
+    if (depth > 0 && item.props.mdxType === 'ul') {
+      const last = items[items.length - 1]
+
+      items[items.length - 1] = {
+        ...last,
+        items: simplifyChildren(item.props.children)
+      }
+
+      return items
+    }
+
+    return items.concat(simplifyChildren(item.props.children, depth + 1))
+  }, [])
 }
 
-const extendItems = (items = []) => {
-  items.forEach(item => {
+const extendItem = item => {
+  if (item.items) {
+    for (const childItem of item.items) {
+      childItem.level = item.level + 1
+      childItem.parentLink = item.link
+
+      extendItem(childItem)
+    }
+  }
+}
+
+export const getItems = children => {
+  const items = simplifyChildren(children)
+
+  for (const item of items) {
     item.level = 0
 
     extendItem(item)
-  })
-  return items
-}
-
-export const extendData = data => {
-  return {
-    title: data.title,
-    logo: data.logo,
-    items: extendItems(data.items)
   }
+
+  return items
 }
 
 const isItemActive = (item, location) => {
@@ -39,27 +64,16 @@ const isItemActive = (item, location) => {
 export const getActiveItem = (items, location) => {
   for (const item of items) {
     if (item.link) {
-      if (isItemActive(item, location)) return item
+      if (isItemActive(item, location)) {
+        return item
+      }
     }
 
     if (item.items) {
       const activeSubItem = getActiveItem(item.items, location)
-      if (activeSubItem) return activeSubItem
-    }
-  }
 
-  return false
-}
-
-const isItemParentActive = (items, parentTitle) => {
-  for (const item of items) {
-    if (item.title === parentTitle) return item
-
-    if (item.items) {
-      for (const items of item.items) {
-        const activeSubItem = isItemParentActive([items], parentTitle)
-
-        if (activeSubItem) return activeSubItem
+      if (activeSubItem) {
+        return activeSubItem
       }
     }
   }
@@ -67,14 +81,38 @@ const isItemParentActive = (items, parentTitle) => {
   return false
 }
 
-export const getActiveItemParents = (items, activeItem, activeItemParents) => {
-  if (activeItem.parentTitle) {
-    const activeParent = isItemParentActive(items, activeItem.parentTitle)
+const isItemParentActive = (items, parentLink) => {
+  for (const item of items) {
+    if (item.link === parentLink) {
+      return item
+    }
 
-    activeItemParents.push(activeParent.title)
+    if (item.items) {
+      for (const childItem of item.items) {
+        const activeChildItem = isItemParentActive([childItem], parentLink)
 
-    return getActiveItemParents(items, activeParent, activeItemParents)
-  } else {
-    return activeItemParents
+        if (activeChildItem) {
+          return activeChildItem
+        }
+      }
+    }
   }
+
+  return false
+}
+
+export const getActiveItemParentLinks = (
+  items,
+  activeItem,
+  activeItemParents
+) => {
+  if (activeItem.parentLink) {
+    const activeParent = isItemParentActive(items, activeItem.parentLink)
+
+    activeItemParents.push(activeParent.link)
+
+    return getActiveItemParentLinks(items, activeParent, activeItemParents)
+  }
+
+  return activeItemParents
 }

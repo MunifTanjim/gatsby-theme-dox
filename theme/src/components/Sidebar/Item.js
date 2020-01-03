@@ -3,10 +3,12 @@ import { useRef } from 'react'
 import { jsx } from 'theme-ui'
 import ItemTitle from './ItemTitle'
 
-export const isItemActive = (activeItemParents, item) => {
-  if (activeItemParents) {
-    for (let parent of activeItemParents) {
-      if (parent === item.title) return true
+export const isItemActive = (activeItemParentLinks, item) => {
+  if (activeItemParentLinks) {
+    for (const parentLink of activeItemParentLinks) {
+      if (parentLink === item.link) {
+        return true
+      }
     }
   }
 
@@ -18,15 +20,15 @@ function Item({
   location,
   openItems,
   activeItem,
-  activeItemParents,
+  activeItemParentLinks,
   toggleItem
 }) {
-  const isParentOfActiveItem = isItemActive(activeItemParents, item)
+  const isParentOfActiveItem = isItemActive(activeItemParentLinks, item)
   const isActive = item.link === location.pathname || isParentOfActiveItem
 
-  const isExpanded = openItems[item.title]
+  const isExpanded = openItems[item.link]
 
-  const id = useRef(item.title.replace(/\W+/g, '')).current
+  const id = useRef(item.link.replace(/\W+/g, '')).current
 
   return (
     <li>
@@ -46,12 +48,12 @@ function Item({
         >
           {item.items.map(subitem => (
             <Item
-              key={subitem.title}
+              key={subitem.link}
               item={subitem}
               location={location}
               openItems={openItems}
               activeItem={activeItem}
-              activeItemParents={activeItemParents}
+              activeItemParents={activeItemParentLinks}
               toggleItem={toggleItem}
             />
           ))}

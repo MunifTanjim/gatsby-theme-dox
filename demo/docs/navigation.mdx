@@ -8,28 +8,24 @@ Create a `navbar.yaml` file in the `src/gatsby-theme-dox` directory.
 
 ```yaml
 # src/gatsby-theme-dox/navbar.yaml
-items:      # Navbar Items
-  - title:  # Item's title
-    link:   # Item's link
+
+items: # Navbar Items
+  - title: # Item's title
+    link: # Item's link
   - title:
     link:
 ```
 
 ## Sidebar
 
-Create a `sidebar.yaml` file in the `src/gatsby-theme-dox` directory.
+Create a `sidebar.mdx` file in the `src/gatsby-theme-dox` directory.
 
-### sidebar.yaml structure
+### sidebar.mdx structure
 
-```yaml
-# src/gatsby-theme-dox/sidebar.yaml
-title:         # Site's title
-items:         # Sidebar Items
-  - title:     # Items' title
-    link:      # Item's link
-    items:     # Nested Items (optional)
-      - title:
-      - link:
-  - title:
-    link:
+```mdx
+<!-- src/gatsby-theme-dox/sidebar.mdx -->
+
+- [Title One](/link/one)
+  - [Title One Nested](/link/one/nested)
+- [Title Two](/link/two)
 ```
