@@ -1,8 +1,8 @@
 /** @jsx jsx */
+import { alpha } from '@theme-ui/color'
 import { jsx } from 'theme-ui'
 import Link from '../Link'
 import Chevron from './Chevron'
-import hex2rgba from 'hex2rgba'
 
 const ChevronIcon = ({ isExpanded }) => (
   <Chevron
@@ -47,7 +47,7 @@ const styles = {
     pr: '2.5rem',
     ':hover': {
       variant: 'linkStyles.nav.:hover',
-      bg: theme => hex2rgba(theme.colors.primary, 0.05)
+      bg: alpha('primary', 0.05)
     }
   }
 }

@@ -5,12 +5,13 @@
  */
 
 import prism from '@theme-ui/prism/presets/theme-ui'
-import hex2rgba from 'hex2rgba'
+import { alpha } from '@theme-ui/color'
 
 export default {
   breakpoints: ['640px', '960px'],
   space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
   initialColorMode: 'light',
+  useColorSchemeMediaQuery: true,
   colors: {
     text: '#011627',
     background: '#FDFFFC',
@@ -132,12 +133,12 @@ export default {
     },
     th: {
       border: '1px solid',
-      borderColor: theme => hex2rgba(theme.colors.text, 0.25),
+      borderColor: alpha('text', 0.25),
       p: '0.25em 0.5em'
     },
     td: {
       border: '1px solid',
-      borderColor: theme => hex2rgba(theme.colors.text, 0.25),
+      borderColor: alpha('text', 0.25),
       p: '0.25em 0.5em'
     }
   },
@@ -160,7 +161,7 @@ export default {
     },
     root: {
       minHeight: '100vh',
-      maxWidth: 960,
+      maxWidth: 980,
       mx: 'auto',
       overflowX: 'hidden'
     },
@@ -194,7 +195,6 @@ export default {
     },
     container: {
       width: '100%',
-      maxWidth: 640,
       mx: 'auto',
       my: 4,
       px: 3

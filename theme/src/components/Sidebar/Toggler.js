@@ -3,7 +3,7 @@ import { useCallback } from 'react'
 import { jsx } from 'theme-ui'
 import Hamburger from '../Hamburger'
 import SidebarOverlay from './Overlay'
-import hex2rbga from 'hex2rgba'
+import { alpha } from '@theme-ui/color'
 import ScreenReader from '../ScreenReader'
 
 const togglerStyle = {
@@ -57,7 +57,7 @@ function SidebarToggler({ sidebar, open, setOpen, toggler }) {
               left: 0,
               width: '100%',
               height: '100%',
-              bg: theme => hex2rbga(theme.colors.background, 0.7)
+              bg: alpha('background', 0.7)
             }}
           />
         </SidebarOverlay>
