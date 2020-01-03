@@ -53,7 +53,7 @@ function Item({
               location={location}
               openItems={openItems}
               activeItem={activeItem}
-              activeItemParents={activeItemParentLinks}
+              activeItemParentLinks={activeItemParentLinks}
               toggleItem={toggleItem}
             />
           ))}

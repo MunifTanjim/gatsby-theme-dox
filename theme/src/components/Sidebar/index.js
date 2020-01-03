@@ -10,7 +10,7 @@ const setOpenItems = (state, items) => {
   for (const item of items) {
     if (item.items) {
       state.openItems[item.link] =
-        isItemActive(state.activeItemParents, item) ||
+        isItemActive(state.activeItemParentLinks, item) ||
         state.activeItem.link === item.link
 
       setOpenItems(state, item.items)

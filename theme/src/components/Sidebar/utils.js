@@ -104,15 +104,15 @@ const isItemParentActive = (items, parentLink) => {
 export const getActiveItemParentLinks = (
   items,
   activeItem,
-  activeItemParents
+  activeItemParentLinks
 ) => {
   if (activeItem.parentLink) {
     const activeParent = isItemParentActive(items, activeItem.parentLink)
 
-    activeItemParents.push(activeParent.link)
+    activeItemParentLinks.push(activeParent.link)
 
-    return getActiveItemParentLinks(items, activeParent, activeItemParents)
+    return getActiveItemParentLinks(items, activeParent, activeItemParentLinks)
   }
 
-  return activeItemParents
+  return activeItemParentLinks
 }
