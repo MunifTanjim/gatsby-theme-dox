@@ -15,26 +15,26 @@
   "main": "index.js",
   "repository": "https://github.com/MunifTanjim/gatsby-theme-dox",
   "dependencies": {
-    "@emotion/core": "^10.0.14",
-    "@mdx-js/mdx": "^1.1.0",
-    "@mdx-js/react": "^1.0.27",
-    "@theme-ui/prism": "^0.2.21",
-    "gatsby-plugin-mdx": "^1.0.17",
-    "gatsby-plugin-react-helmet": "^3.1.2",
-    "gatsby-plugin-theme-ui": "^0.2.18",
-    "gatsby-source-filesystem": "^2.1.6",
-    "gatsby-transformer-yaml": "^2.2.4",
-    "hex2rgba": "^0.0.1",
-    "is-absolute-url": "^3.0.0",
+    "@emotion/core": "^10.0.27",
+    "@mdx-js/mdx": "^1.5.3",
+    "@mdx-js/react": "^1.5.3",
+    "@theme-ui/color": "^0.2.53",
+    "@theme-ui/prism": "^0.2.50",
+    "gatsby-plugin-mdx": "^1.0.64",
+    "gatsby-plugin-react-helmet": "^3.1.18",
+    "gatsby-plugin-theme-ui": "^0.2.53",
+    "gatsby-source-filesystem": "^2.1.43",
+    "gatsby-transformer-yaml": "^2.2.20",
+    "is-absolute-url": "^3.0.3",
     "react-helmet": "^6.0.0-beta",
     "remark-emoji": "^2.0.2",
     "remark-slug": "^5.1.2",
-    "theme-ui": "^0.2.18"
+    "theme-ui": "^0.2.52"
   },
   "devDependencies": {
-    "gatsby": "^2.13.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "gatsby": "^2.18.17",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   },
   "peerDependencies": {
     "gatsby": "^2.13.1",
