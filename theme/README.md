@@ -18,7 +18,7 @@ Install the `gatsby-theme-dox` package:
 
 ```sh
 # with npm:
-npm run --save gatsby-theme-dox
+npm install --save gatsby-theme-dox
 
 # with yarn:
 yarn add gatsby-theme-dox
